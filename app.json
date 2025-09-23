@@ -1,0 +1,13 @@
+{
+  "name": "Uptimer",
+  "description": "A simple app to ping one or more apps on pletforms like render every 30 seconds to keep them from sleeping",
+  "env": {
+    "RENDER_APP_URL": {
+      "description": "Comma-separated list of URLs to ping (e.g. https://app1.onrender.com,https://app2.onrender.com)",
+      "required": true
+    }
+  },
+  "scripts": {
+    "postdeploy": "echo Deployment successful"
+  }
+}
