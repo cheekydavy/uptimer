@@ -1,5 +1,4 @@
 const express = require('express');
-const fetch = require('node-fetch');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,7 +16,7 @@ if (urls.length === 0) {
 app.get('/', (req, res) => {
   res.json({
     message: "Ping service running",
-    urls: urls
+    urls
   });
 });
 
@@ -27,16 +26,14 @@ async function pingUrls() {
       const resp = await fetch(url);
       console.log(`[${new Date().toISOString()}] Pinged ${url}, status: ${resp.status}`);
     } catch (err) {
-      console.error(`[${new Date().toISOString()}] Error pinging ${url}:`, err.message);
+      console.error(`[${new Date().toISOString()}] Error pinging ${url}: ${err.message}`);
     }
   }
 }
 
 setInterval(pingUrls, 30 * 1000);
-
 pingUrls();
 
 app.listen(PORT, () => {
-  console.log(`App is listening on port ${PORT}`);
-  console.log(`Pinging URLs: ${urls.join(", ")}`);
+  console.log(`App listening on port ${PORT}`);
 });
