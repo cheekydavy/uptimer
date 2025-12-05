@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
 
 const urls = (process.env.RENDER_APP_URL || "")
   .split(",")
@@ -36,5 +37,5 @@ pingUrls();
 
 app.listen(PORT, HOST, () => {
   console.log(`App listening on ${HOST}:${PORT}`);
-  console.log("Uptimer running");
+  console.log("Pinger running");
 });
