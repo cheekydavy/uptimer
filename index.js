@@ -34,6 +34,7 @@ async function pingUrls() {
 setInterval(pingUrls, 30 * 1000);
 pingUrls();
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`App listening on ${HOST}:${PORT}`);
+  console.log("Uptimer running");
 });
